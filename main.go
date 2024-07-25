@@ -73,8 +73,7 @@ func main() {
 						)
 						if err != nil {
 							log.Printf("failed to fetch attestation data after head event: %v", err)
-						}
-						if resp.Data.BeaconBlockRoot != data.Block {
+						} else if resp.Data.BeaconBlockRoot != data.Block {
 							mu.Lock()
 							unreadyBlocks200[name]++
 							mu.Unlock()
@@ -93,8 +92,7 @@ func main() {
 						)
 						if err != nil {
 							log.Printf("failed to fetch attestation data after head event: %v", err)
-						}
-						if resp.Data.BeaconBlockRoot != data.Block {
+						} else if resp.Data.BeaconBlockRoot != data.Block {
 							mu.Lock()
 							unreadyBlocks400[name]++
 							mu.Unlock()
